@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		width: 500px;
+		height: 400px;
+		background: #ccc;
+		border-radius:20px;
+		border:2px solid #000;
+		text-align: center;
+		overflow: hidden;
+		margin:100px auto;
+		display: none;
+		opacity:0;
+		-webkit-transform:scale(5,5);
+	}
+</style>
+<script>
+	window.onload = function(){
+		var oBox = document.querySelector('.box');
+		var oBtn = document.querySelector('.a_btn');
+		var oClose = document.querySelector('.close');
+
+		oBtn.onclick = function(){
+			oBox.style.display = 'block';
+			oBox.style.WebkitTransition = '1s all ease';
+
+			setTimeout(function(){
+				oBox.style.WebkitTransform = 'scale(1,1)';
+				oBox.style.opacity = 1;
+			},0);
+		};
+		oClose.onclick = function(){
+			oBox.style.WebkitTransform = 'scale(5,5)';
+			oBox.style.opacity = 0;
+
+			function transEnd(){
+				oBox.removeEventListener('transitionend',transEnd,false);
+			oBox.style.display = 'none';
+			}
+			oBox.addEventListener('transitionend',transEnd,false);
+		};
+	};
+</script>
+</head>
+<body>
+	<a href="javascript:;" class="a_btn">登录</a>
+	<div class="box">
+		<input type="text"><br>
+		<input type="text"><br>
+		<input type="text"><br>
+		<input type="text"><br>
+		<input type="text"><br>
+		<a href="javascript:;" class="close">呵呵</a>
+	</div>
+</body>
+</html>

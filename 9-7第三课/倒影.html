@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background: #000;
+	}
+	.box{
+		width: 400px;
+		height: 250px;
+		margin:100px auto;
+		position: relative;
+	}
+	img{
+		width: 400px;
+		height: 250px;
+	}
+	.box span{
+		width: 400px;
+		height: 250px;
+		background: url(img/1.jpg);
+		background-size: cover;
+		position: absolute;
+		left:0;
+		top:255px;
+		/*-webkit-transform:rotateX(180deg);*/
+		-webkit-transform:scale(1,-1);
+		-webkit-mask: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<img src="img/1.jpg" alt="">
+		<span></span>
+	</div>
+</body>
+</html>
